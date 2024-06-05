@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animation Chaining</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        margin: 0;
+      }
+
+      .grass,
+      .sky,
+      .road {
+        position: relative;
+      }
+      .sky {
+        height: 40%;
+        background: skyblue;
+      }
+
+      .grass {
+        height: 30%;
+        background: seagreen;
+      }
+      .road {
+        height: 30%;
+        background: dimgrey;
+        box-sizing: border-box;
+        border-top: 10px solid grey;
+        width: 100%;
+      }
+      .lines {
+        box-sizing: border-box;
+        border: 5px dashed #fff;
+        height: 0px;
+        width: 100%;
+        position: absolute;
+        top: 45%;
+      }
+      .mario {
+        height: 150px;
+        position: absolute;
+        top: -40px;
+        left: 0px;
+        animation-name: suman;
+        animation-duration: 3s;
+        animation-fill-mode: both;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+      }
+      .luigi {
+        height: 150px;
+        position: absolute;
+        top: 100px;
+        left: 0;
+        animation-name: suman;
+        animation-duration: 5s;
+        animation-fill-mode: both;
+        animation-iteration-count: infinite;
+        animation-direction: alternate-reverse;
+      }
+      .cloud {
+        position: absolute;
+      }
+
+      .cloud:nth-child(1) {
+        width: 200px;
+        top: 120px;
+        opacity: 0.5;
+        /* animation-name: wind;
+        animation-duration: 30s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate-reverse; */
+        animation: wind 30s linear infinite alternate-reverse;
+      }
+
+      .cloud:nth-child(2) {
+        width: 300px;
+        top: 0px;
+        /* animation-name: wind;
+        animation-duration: 35s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate-reverse; */
+        animation: wind 35s linear infinite alternate-reverse;
+      }
+
+      @keyframes suman {
+        from {
+          transform: translateX(-300px);
+        }
+        to {
+          transform: translateX(1200px);
+        }
+      }
+      @keyframes wind {
+        from {
+          left: -300px;
+        }
+        to {
+          left: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sky">
+      <img
+        class="cloud"
+        src="https://media.istockphoto.com/id/904784522/photo/dramatic-sky.jpg?s=612x612&w=is&k=20&c=FGf55Yj1b5qeAkb2GG2HOQawT-biBKeTsjRAcvRtxGY="
+      />
+      <img
+        class="cloud"
+        src="https://media.istockphoto.com/id/904784522/photo/dramatic-sky.jpg?s=612x612&w=is&k=20&c=FGf55Yj1b5qeAkb2GG2HOQawT-biBKeTsjRAcvRtxGY="
+      />
+    </div>
+    <div class="grass"></div>
+    <div class="road">
+      <div class="lines"></div>
+      <img
+        class="mario"
+        src="https://media.istockphoto.com/id/172420521/photo/indian-motorcycle-enfield-bullet-style.jpg?s=2048x2048&w=is&k=20&c=vea84eDUmRpSmGfdeDMeBsmR_ZFcAilwRdr9yquyxzU="
+      />
+      <img
+        class="luigi"
+        src="https://avatars.githubusercontent.com/u/101393663?v=4"
+      />
+    </div>
+  </body>
+</html>
