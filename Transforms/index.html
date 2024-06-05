@@ -1,11 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Transform</title>
-</head>
-<body>
-    Hi
-</body>
+    <style>
+      body {
+        background-color: lightblue;
+        text-align: center;
+      }
+      .wrapper {
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      /* img{
+            transform: translate(-100px, 500px) 
+        } */
+      /* img{
+           transform: scale(1);
+        } */
+      /* img {
+        transform: rotateZ(-90deg);
+      }
+      */
+      img {
+        transform: rotateZ(-90deg) scale(1.5) translateY(200px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <img src="https://avatars.githubusercontent.com/u/101393663?v=4" />
+    </div>
+  </body>
 </html>
