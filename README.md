@@ -73,8 +73,3 @@ animation will start after 2 sec
 ease-in means start slowly and then go fast
 ease-out means start fastly and then go slow
 ease-in-out means start and end go with slowly
-
-
-
-
-
