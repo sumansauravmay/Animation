@@ -31,5 +31,50 @@ it will apply only in background
 transition: background 1s, transform 1s 1s ease-in;
 
 
+keyframes
+
+in the below example mario is the class name of image.
+ .mario{
+        height:150px;
+        position: absolute;
+        top: -40px;
+        left:0px;
+        animation-name: suman;
+        animation-duration: 5s;
+
+      }
+      @keyframes suman {
+        from{transform: translateX(0)}
+        to{transform: translateX(1400px)}
+      }
+
+keyframes fill mode
+it will not come back to initial phase
+in the below example mario is the class name of image.
+ .mario{
+        height:150px;
+        position: absolute;
+        top: -40px;
+        left:0px;
+        animation-name: suman;
+        animation-duration: 5s;
+       animation-fill-mode: forwards;
+      }
+      @keyframes suman {
+        from{transform: translateX(0)}
+        to{transform: translateX(1400px)}
+      }
+
+Animation Delay
+animation will start after 2 sec
+ animation-delay: 2s;
+
+
+ease-in means start slowly and then go fast
+ease-out means start fastly and then go slow
+ease-in-out means start and end go with slowly
+
+
+
 
 
