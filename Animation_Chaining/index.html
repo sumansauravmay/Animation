@@ -86,7 +86,8 @@
         animation-duration: 35s;
         animation-iteration-count: infinite;
         animation-direction: alternate-reverse; */
-        animation: wind 35s linear infinite alternate-reverse;
+        animation: wind 35s linear infinite alternate-reverse,
+                   jump 0.3s 1.2s ease;
       }
 
       @keyframes suman {
@@ -103,6 +104,17 @@
         }
         to {
           left: 100%;
+        }
+      }
+      @keyframes jump {
+        0% {
+          top: -40px;
+        }
+        50% {
+          top: -100px;
+        }
+        100% {
+          top: -40px;
         }
       }
     </style>
