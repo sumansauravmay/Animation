@@ -5,142 +5,147 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Animation Chaining</title>
     <style>
-      html,
       body {
-        height: 100%;
-        width: 100%;
-        overflow: hidden;
         margin: 0;
-      }
-
-      .grass,
-      .sky,
-      .road {
         position: relative;
       }
-      .sky {
-        height: 40%;
-        background: skyblue;
+      body.pop-up {
+        background-color: #222;
       }
-
-      .grass {
-        height: 30%;
-        background: seagreen;
+      * {
+        font-family: calibri, sans-serif;
+        font-weight: normal;
+        color: #333;
       }
-      .road {
-        height: 30%;
-        background: dimgrey;
-        box-sizing: border-box;
-        border-top: 10px solid grey;
+      h1 {
+        font-size: 48px;
+        margin: 10px 0px;
+      }
+      p {
+        margin-bottom: 48px;
+      }
+      #pop-up {
+        position: relative;
+        top: 200px;
+        width: 500px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      #pop-up .container {
+        background-color: #f0e4d4;
+        padding: 30px;
+        position: absolute;
+        top: 50px;
         width: 100%;
-      }
-      .lines {
         box-sizing: border-box;
-        border: 5px dashed #fff;
-        height: 0px;
-        width: 100%;
-        position: absolute;
-        top: 45%;
       }
-      .mario {
-        height: 150px;
-        position: absolute;
-        top: -40px;
-        left: 0px;
-        animation-name: suman;
-        animation-duration: 3s;
-        animation-fill-mode: both;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease-in-out;
+      #pop-up input {
+        padding: 10px;
+        border: 0;
+        border-radius: 10px 0 0 10px;
+        border: 1px solid #333;
+        font-size: 18px;
       }
-      .luigi {
-        height: 150px;
-        position: absolute;
-        top: 100px;
-        left: 0;
-        animation-name: suman;
-        animation-duration: 5s;
-        animation-fill-mode: both;
-        animation-iteration-count: infinite;
-        animation-direction: alternate-reverse;
+      button {
+        padding: 10px;
+        border: 0;
+        color: #fff;
+        background: #333;
+        margin-left: -5px;
+        border-radius: 0 10px 10px 0;
+        border: 1px solid #333;
+        font-size: 18px;
       }
-      .cloud {
+      .cross {
         position: absolute;
+        top: 10px;
+        left: 10px;
+        background: #555;
+        color: #ddd;
+        font-weight: bold;
+        width: 22px;
+        height: 22px;
+        text-align: center;
+        border-radius: 11px;
       }
 
-      .cloud:nth-child(1) {
-        width: 200px;
-        top: 120px;
-        opacity: 0.5;
-        /* animation-name: wind;
-        animation-duration: 30s;
-        animation-iteration-count: infinite;
-        animation-direction: alternate-reverse; */
-        animation: wind 30s linear infinite alternate-reverse;
-      }
+      /*// POP-UP ANIMATION STYLES //*/
 
-      .cloud:nth-child(2) {
-        width: 300px;
-        top: 0px;
-        /* animation-name: wind;
-        animation-duration: 35s;
-        animation-iteration-count: infinite;
-        animation-direction: alternate-reverse; */
-        animation: wind 35s linear infinite alternate-reverse,
-                   jump 0.3s 1.2s ease;
-      }
+#pop-up{
+    top:-400px;
+    animation: drop 0.5s ease forwards,
+               swing 2s 3s forwards;
+}
 
-      @keyframes suman {
-        from {
-          transform: translateX(-300px);
-        }
-        to {
-          transform: translateX(1200px);
-        }
+@keyframes drop {
+    0%{opacity: 0;}
+    70%{transform: translateY(700px)}
+    100%{transform: translateY(650px); opacity: 1;}
+}
+
+@keyframes swing {
+    0%{transform: translateY(650px) rotateZ(0deg)}
+    40%{transform: translateY(650px) rotateZ(90deg)}
+    70%{transform: translateY(650px) rotateZ(70deg)}
+    100%{transform: translateY(650px) rotateZ(75deg)}
+
+}
+
+      /*// BASKET BASE STYLES //*/
+
+
+
+
+
+      header {
+        padding: 10px 20px;
+        border-bottom: 1px solid #eee;
+        background: #fff;
       }
-      @keyframes wind {
-        from {
-          left: -300px;
-        }
-        to {
-          left: 100%;
-        }
+      header:after {
+        display: block;
+        content: "";
+        clear: both;
       }
-      @keyframes jump {
-        0% {
-          top: -40px;
-        }
-        50% {
-          top: -100px;
-        }
-        100% {
-          top: -40px;
-        }
+      .basket ul {
+        padding: 0;
+        margin-top: 40px;
+      }
+      .basket li {
+        display: inline-block;
+        list-style-type: none;
+        width: 30%;
+        margin: 30px 1.5%;
+        text-align: center;
+      }
+      .basket button {
+        border-radius: 10px;
+        cursor: pointer;
+      }
+      .basket header div {
+        float: right;
+        position: relative;
+        z-index: 1;
+      }
+      .basket header h1 {
+        float: left;
       }
     </style>
   </head>
-  <body>
-    <div class="sky">
-      <img
-        class="cloud"
-        src="https://media.istockphoto.com/id/904784522/photo/dramatic-sky.jpg?s=612x612&w=is&k=20&c=FGf55Yj1b5qeAkb2GG2HOQawT-biBKeTsjRAcvRtxGY="
-      />
-      <img
-        class="cloud"
-        src="https://media.istockphoto.com/id/904784522/photo/dramatic-sky.jpg?s=612x612&w=is&k=20&c=FGf55Yj1b5qeAkb2GG2HOQawT-biBKeTsjRAcvRtxGY="
-      />
-    </div>
-    <div class="grass"></div>
-    <div class="road">
-      <div class="lines"></div>
-      <img
-        class="mario"
-        src="https://media.istockphoto.com/id/172420521/photo/indian-motorcycle-enfield-bullet-style.jpg?s=2048x2048&w=is&k=20&c=vea84eDUmRpSmGfdeDMeBsmR_ZFcAilwRdr9yquyxzU="
-      />
-      <img
-        class="luigi"
-        src="https://avatars.githubusercontent.com/u/101393663?v=4"
-      />
+  <body class="pop-up">
+    <div id="pop-up">
+      <!-- <img src="https://images.unsplash.com/photo-1708022772151-26030f4a4ba4?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHJhaW4lMjBmYWxsJTIwc2t5fGVufDB8fDB8fHwy"/> -->
+      <div class="container">
+        <h1>Kung Foo Your Skill</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Non ullam
+          veniam magnam fuga molestiae nulla, esse labore commodi odio eligendi
+          quaerat minus nisi itaque cupiditate a. Fugit id eius labore!
+        </p>
+        <input type="email" placeholder="email" required />
+        <button>Hi Ya</button>
+        <div class="cross">x</div>
+      </div>
     </div>
   </body>
 </html>
